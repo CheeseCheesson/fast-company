@@ -14,12 +14,24 @@ export const Users = () => {
     console.log(userId);
     setUsers((prevState) => prevState.filter((item) => item._id !== userId));
   };
+  const checkPerson = (number) => {
+    switch (number) {
+      case 4:
+        return "человека";
+      case 3:
+        return "человека";
+      case 2:
+        return "человека";
+      default:
+        return "человек";
+    }
+  };
 
   const renderPhrase = (number) => {
     return (
       <>
         <span className="badge bg-primary">
-          {number} человек тусанёт с тобой сегодня
+          {number} {checkPerson(number)} тусанёт с тобой сегодня
         </span>
       </>
     );
@@ -28,16 +40,21 @@ export const Users = () => {
   if (users.length === 0) {
     return (
       <>
-      <img
-        src={friendlyPic}
-        className="img-fluid"
-        alt="pic"
-        style={{
-          minWidth: 100 + "%",
-          maxHeight: 100 + "vh",
-          overflowY: "hidden",
-        }}
-      />
+      <h1>
+        <span className="badge bg-danger">
+          Никто с тобой не тусанёт
+        </span>
+        </h1>
+        <img
+          src={friendlyPic}
+          className="img-fluid"
+          alt="pic"
+          style={{
+            minWidth: 100 + "%",
+            maxHeight: 100 + "vh",
+            overflowY: "hidden",
+          }}
+        />
       </>
     );
   }
