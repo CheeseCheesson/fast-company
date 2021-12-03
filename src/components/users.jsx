@@ -39,7 +39,15 @@ export const Users = () => {
   if (users.length === 0) {
     return (
       <>
-        <h1>
+        <h1 style={{
+          position:"absolute",
+          width: 50+'%',
+          height: 50+'%',
+          top: 0,
+          right: 'auto',
+          bottom: 0,
+          textAlign: 'center'
+        }}>
           <span className="badge bg-danger">Никто с тобой не тусанёт</span>
         </h1>
         <img
