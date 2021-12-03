@@ -40,10 +40,8 @@ export const Users = () => {
   if (users.length === 0) {
     return (
       <>
-      <h1>
-        <span className="badge bg-danger">
-          Никто с тобой не тусанёт
-        </span>
+        <h1>
+          <span className="badge bg-danger">Никто с тобой не тусанёт</span>
         </h1>
         <img
           src={friendlyPic}
@@ -74,34 +72,32 @@ export const Users = () => {
         </thead>
         <tbody>
           {users.map((item) => (
-            <>
-              <tr key={item._id}>
-                <td>{item.name}</td>
-                <td>
-                  {item.qualities.map((quality) => (
-                    <span
-                      className={getBageClasses(quality.color)}
-                      key={quality._id}
-                    >
-                      {quality.name}
-                    </span>
-                  ))}
-                </td>
-                <td>
-                  <span key={item.profession._id}>{item.profession.name}</span>
-                </td>
-                <td>{item.completedMeetings}</td>
-                <td>{item.rate}</td>
-                <td>
+            <tr key={item._id}>
+              <td>{item.name}</td>
+              <td>
+                {item.qualities.map((quality) => (
                   <span
-                    className="btn btn-lg btn-danger"
-                    onClick={() => handleDelete(item._id)}
+                    className={getBageClasses(quality.color)}
+                    key={quality._id}
                   >
-                    delete
+                    {quality.name}
                   </span>
-                </td>
-              </tr>
-            </>
+                ))}
+              </td>
+              <td>
+                <span key={item.profession._id}>{item.profession.name}</span>
+              </td>
+              <td>{item.completedMeetings}</td>
+              <td>{item.rate}</td>
+              <td>
+                <span
+                  className="btn btn-lg btn-danger"
+                  onClick={() => handleDelete(item._id)}
+                >
+                  delete
+                </span>
+              </td>
+            </tr>
           ))}
         </tbody>
       </table>
