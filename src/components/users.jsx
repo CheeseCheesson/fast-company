@@ -11,7 +11,6 @@ export const Users = () => {
     return bgColorQuality;
   };
   const handleDelete = (userId) => {
-    console.log(userId);
     setUsers((prevState) => prevState.filter((item) => item._id !== userId));
   };
   const checkPerson = (number) => {
