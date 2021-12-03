@@ -4,8 +4,15 @@ import api from "../api";
 export const Users = () => {
   const [users, setUsers] = useState(api.users.fetchAll());
 
-  const handleDelete = (userId) => {};
-  const renderPhrase = (number) => {};
+  const handleDelete = (userId) => {
+    console.log(userId);
+    setUsers((prevState) => prevState.filter((item) => item._id !== userId))
+
+  };
+  const renderPhrase = (number) => {
+    
+  };
+
   const getBageClasses = (color) => {
     let bgColorQuality = "btn-sm m-1 text-white fw-bolder text-center btn-";
     bgColorQuality += color;
@@ -36,7 +43,6 @@ export const Users = () => {
             <>
               <tr key={item._id}>
                 <td>{item.name}</td>
-
                 <td>
                   {item.qualities.map((quality) => (
                     <span
@@ -47,14 +53,13 @@ export const Users = () => {
                     </span>
                   ))}
                 </td>
-
                 <td>
                   <span key={item.profession._id}>{item.profession.name}</span>
                 </td>
                 <td>{item.completedMeetings}</td>
                 <td>{item.rate}</td>
                 <td>
-                  <span className="btn btn-lg btn-danger">delete</span>
+                  <span className="btn btn-lg btn-danger" onClick={() => handleDelete(item._id)}>delete</span>
                 </td>
               </tr>
             </>
